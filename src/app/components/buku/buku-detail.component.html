@@ -1,0 +1,26 @@
+<div class="container" *ngIf="buku">
+    <h2>{{buku.judul | uppercase}} Details</h2>
+    <fieldset>
+        <div class="form-group"><span>id: {{buku.id}}</span></div>
+        <div class="form-group"><span>ISBN: {{buku.isbn}}</span></div>
+        <div class="form-group">
+            <label>Pengarang:</label>
+            <input id="txtPengarang" class="form-control" [(ngModel)]="buku.pengarang" placeholder="Pengarang">
+        </div>
+        <div class="form-group">
+            <label>Penerbit:</label>
+            <input type="text" id="txtPenerbit" class="form-control" [(ngModel)]="buku.penerbit" placeholder="Penerbit">
+        </div>
+        <div class="form-group">
+            <span>Tanggal Terbit:</span>
+            <input id="txtTglTerbit" class="form-control" type="date" [(ngModel)]="buku.tglterbit" placeholder="Tanggal Terbit">
+        </div>
+        <div class="d-flex justify-content-between">
+           <span><button class="btn btn-secondary fw-bold" (click)="goBack()">&lt;</button></span>
+            <div>
+                <button class="btn mx-1 btn-success" type="submit" (click)="update()">Update</button>
+                <!-- <button class="btn mx-1 btn-danger">Delete</button> -->
+            </div>
+        </div>    
+    </fieldset>
+</div>

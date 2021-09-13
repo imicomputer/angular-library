@@ -1,0 +1,33 @@
+<div class="container mt-3">
+    <div class="container mb-3">
+        <button class="btn btn-secondary" (click)="getAllPelanggan()">Load from WebService</button>
+        &nbsp;
+        <a class="btn btn-success">Add Pelanggan</a>
+    </div>
+    <div class="d-flex justify-content-between">
+        <div>
+            <div class="card border-primary mb-3" style="width: 400px;" *ngFor="let iPel of pelanggan">
+                <div class="card-body">
+                     <!-- (click)="onSelectBuku(iBuku)" -->
+                    <div>Nama: {{iPel.nama}}</div>
+                    <div>Alamat: {{iPel.alamat}}</div>
+                </div>
+                
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" >Detail</a>
+                            <a class="dropdown-item" >Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #pelangganKosong>
+    <p>Data pelanggan tidak ada!</p>
+</ng-template>

@@ -1,0 +1,23 @@
+<div class="container text-center">
+    <div class="card bg-light my-3" style="max-width: 30rem;" *ngIf="sewa">
+        <div class="card-header h3 d-flex justify-content-between">
+            <a class="btn btn-dark text-white" routerLink="/sewa">&lt;</a> <span>ISBN: {{sewa.isbn}}</span>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                    <em>ID:</em> <span>{{sewa.id}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <em>Tanggal Sewa:</em> <span>{{sewa.tglsewa}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <em>Lama Sewa:</em> <span>{{sewa.lamasewa}} Hari</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <em>Pelanggan ID:</em> <span>{{sewa.pelangganid}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

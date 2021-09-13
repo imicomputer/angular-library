@@ -1,0 +1,30 @@
+<div class="container">
+    <form #formBuku="ngForm" (ngSubmit)="save(formBuku.value)">
+        <div class="form-group row">
+            <label for="txtjudul" class="form-label mt-1">Judul: </label>
+            <input type="text" id="txtjudul" name="judul" class="form-control" placeholder="Judul Buku" ngModel required>
+        </div>
+        <div class="form-group row">
+            <label for="txtPENGARANG" class="form-label mt-1">PENGARANG: </label>
+            <input type="text" id="txtPENGARANG" name="pengarang" class="form-control" placeholder="Nama Pengarang" ngModel required>
+        </div>
+        <div class="form-group row">
+            <label for="txtTGLTERBIT" class="form-label mt-1">TGLTERBIT: </label>
+            <input type="date" id="txtTGLTERBIT" name="tglterbit" class="form-control" placeholder="Tanggal Terbit" ngModel required>
+        </div>
+        <div class="form-group row">
+            <label for="txtPENERBIT" class="form-label mt-1">PENERBIT: </label>
+            <input type="text" id="txtPENERBIT" name="penerbit" class="form-control" placeholder="Penerbit" ngModel required>
+        </div>
+        <div class="form-group row">
+            <label for="txtISBN" class="form-label mt-1">ISBN: </label>
+            <input type="text" id="txtISBN" name="isbn" class="form-control" ngModel placeholder="No. ISBN" required>
+        </div>
+        <div class="form-group row">
+            <label for="txtUSERID" class="form-label mt-1">USERID: </label>
+            <input type="text" id="txtUSERID" name="userid" class="form-control" placeholder="User ID" ngModel>
+        </div>
+        
+        <button type="submit" class="btn btn-success mt-1">SAVE</button>
+    </form>
+</div>

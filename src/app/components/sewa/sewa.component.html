@@ -1,0 +1,36 @@
+<div class="container mt-3">
+    <div class="container mb-3">
+        <button class="btn btn-secondary" (click)="getAllSewa()">Load from WebService</button>
+        &nbsp;
+        <a class="btn btn-success" routerLink="/">Add Sewa</a>
+        <!-- <button class="btn btn-success" (click)="getAllBuku()"></button> -->
+    </div>
+    <div class="d-flex justify-content-between">
+        <div>
+            <div class="card border-primary mb-3" style="width: 400px;" *ngFor="let iSewa of sewa">
+                <div class="card-body">
+                    <!-- (click)="onSelectSewa(iSewa)" -->
+                    <div>ISBN: {{iSewa.isbn}} ({{iSewa.id}}); TGL Sewa: {{iSewa.tglsewa}}; Lama Sewa:  {{iSewa.lamasewa}}</div>
+                </div>
+                <!-- <button class="btn btn-danger" (click)="delete(iSewa.id)">Delete</button> -->
+
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" [routerLink]="['/sewa-detail', iSewa.id]">Detail</a>
+                            <a class="dropdown-item" (click)="delete(iSewa.id)">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                  
+            </div>
+        </div>
+        <!-- <app-sewa-detail [sewa]="selectedSewa"></app-sewa-detail> -->
+    </div>
+</div>
+
+<ng-template #bukuKosong>
+    <p>Data buku tidak ada!</p>
+</ng-template>
