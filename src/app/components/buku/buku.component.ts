@@ -20,9 +20,12 @@ export class BukuComponent implements OnInit {
     private msgSvc: MessageService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  }
+
+  getAllSampleBuku () {
     // alert(this.bukuService.test());
-    // this.buku = this.bukuService.testDataBuku();
+    this.buku = this.bukuService.testDataBuku();
+    this.jmlBuku = this.buku.length;
   }
 
   getAllBuku() {
@@ -34,7 +37,7 @@ export class BukuComponent implements OnInit {
 
   delete(bukuId: any): void{
     this.msgSvc.add("Deleting Buku with id=" + bukuId);
-    this.bukuService.deleteBuku(bukuId).subscribe();    
+    this.bukuService.deleteBuku(bukuId).subscribe();
   }
 
   onSelectBuku(iBuku: Buku) {

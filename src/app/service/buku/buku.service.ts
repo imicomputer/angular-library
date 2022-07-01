@@ -3,9 +3,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
+import { MessageService } from 'src/app/service/message/message.service';
+
 import { Buku } from 'src/app/model/Buku';
-import { bukuSample } from 'src/app/buku-sample';
-import { MessageService } from '../message/message.service';
+import jsonBuku from 'src/assets/json/buku.json';
+// import { bukuSample } from 'src/app/buku-sample';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +15,7 @@ import { MessageService } from '../message/message.service';
 export class BukuService {
   constructor(private httpClient: HttpClient, private msgSvc: MessageService) {}
 
-  buku: Buku[] = bukuSample;
+  buku: Buku[] = [];
   svcUrl = 'http://localhost:8081/buku/';
 
   private httpOptions = {
@@ -25,7 +27,7 @@ export class BukuService {
   }
 
   testDataBuku(): Buku[] {
-    return this.buku;
+    return jsonBuku;
   }
 
   getAllBuku(): Observable<Buku[]> {
@@ -78,7 +80,8 @@ export class BukuService {
   }
 
   getBukuByJudul(judulBuku: string): Observable<Buku[]> {
-    return this.httpClient.get<Buku[]>(this.svcUrl + 'judul/' + judulBuku).pipe(
+    // return this.httpClient.get<Buku[]>(this.svcUrl + 'judul/' + judulBuku).pipe(
+    return this.httpClient.get<Buku[]>(this.svcUrl + 'getByJudulOrPengarang/' + judulBuku).pipe(
       tap((result) => this.msgSvc.add('BukuService.getBukuByJudul(): Buku Judul ' + judulBuku + 'berhasil diload dari WebService!')),
       catchError(this.msgSvc.handleError<Buku[]>('getBukuByJudul failed', []))
     );

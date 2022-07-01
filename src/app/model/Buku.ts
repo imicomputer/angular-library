@@ -5,5 +5,5 @@ export interface Buku {
     tglterbit:  string;
     penerbit:   string;
     isbn:       string;
-    userid:     number;
+    userid:     number | null;
 }

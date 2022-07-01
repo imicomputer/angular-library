@@ -1,43 +1,52 @@
 <div class="container mt-3">
     <div class="container mb-3">
-        <button class="btn btn-secondary" (click)="getAllBuku()">Load from WebService</button>
-        &nbsp;
-        <a class="btn btn-success" routerLink="/buku-new-form">Add Buku</a>
         <div>
-            <!-- class="form-group column" -->
-            <form #formJudulBuku="ngForm" (ngSubmit)="getByJudul(formJudulBuku.value)">
-                <input type="text" id="txtJudul" name="judul" class="form-control" placeholder="Judul Buku" ngModel required>
-                <button type="submit" class="btn btn-success mt-1">Find</button>
-                <span>Jumlah Buku: {{jmlBuku}}</span>
-            </form>
+          <!-- class="form-group column" -->
         </div>
     </div>
     <div class="d-flex justify-content-between">
-        <div>
-            <div class="card border-primary mb-3" style="width: 400px;" *ngFor="let iBuku of buku">
-                <div class="card-body">
-                    <div>Judul: {{iBuku.judul}} ({{iBuku.id}})</div>
-                    <div>Pengarang: {{iBuku.pengarang}}</div>
-                </div>
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <!-- <a class="dropdown-item" (click)="onSelectBuku(iBuku)">Detail</a> -->
-                            <a class="dropdown-item" [routerLink]="['/buku-detail',iBuku.id]">Detail</a>
-                            <a class="dropdown-item" (click)="delete(iBuku.id)">Delete</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="h2">Daftar Buku</div>
+      <div class="btn-group mb-3" role="group" aria-label="Action">
+          <a class="btn btn-secondary" (click)="getAllSampleBuku()">Load Sample Buku</a>
+          <a class="btn btn-secondary" (click)="getAllBuku()">Load Data Buku</a>
+          <a class="btn btn-success" routerLink="/buku-new-form">Add Buku</a>
+      </div>
+      <form #formJudulBuku="ngForm" (ngSubmit)="getByJudul(formJudulBuku.value)">
+        <div class="input-group">
+          <input type="text" id="txtJudul" name="judul" class="form-control" placeholder="Judul Buku" ngModel required>
+          <button type="submit" class="btn btn-success mt-1">Find</button>
         </div>
-        <ng-template #bukuKosong>
-            <div class="card border-primary mb-3" style="width: 400px;" *ngFor="let iBuku of buku">
-                <div class="card-body"><div>Data buku tidak ada!</div></div>
-            </div>
-        </ng-template>
-
-        <!-- <app-buku-detail [buku]="selectedBuku"></app-buku-detail> -->
+      </form>
     </div>
+    <hr>
+    <div class="text-center">Jumlah Buku: {{jmlBuku}}</div>
+    <div class="d-flex justify-content-between">
+    </div>
+    <div class="row">
+      <div class="card border-primary mb-3 mx-auto" style="min-width: 20rem; max-width: 30rem;"
+        *ngFor="let iBuku of buku">
+          <div class="card-body">
+              <div>Judul: {{iBuku.judul}} ({{iBuku.id}})</div>
+              <div>Pengarang: {{iBuku.pengarang}}</div>
+          </div>
+          <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+              <div class="btn-group" role="group">
+                  <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                      <!-- <a class="dropdown-item" (click)="onSelectBuku(iBuku)">Detail</a> -->
+                      <a class="dropdown-item" [routerLink]="['/buku-detail',iBuku.id]">Detail</a>
+                      <a class="dropdown-item" (click)="delete(iBuku.id)">Delete</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <ng-template #bukuKosong>
+        <div class="card border-primary mb-3" style="width: 400px;" *ngFor="let iBuku of buku">
+            <div class="card-body"><div>Data buku tidak ada!</div></div>
+        </div>
+    </ng-template>
+
+    <!-- <app-buku-detail [buku]="selectedBuku"></app-buku-detail> -->
 </div>
 
